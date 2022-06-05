@@ -1,9 +1,8 @@
-import { Axios } from "axios";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginUser } from "../../../_actions/user_action";
 import { useNavigate } from "react-router-dom";
-
+import "./LoginPage.css";
 function LoginPage(props) {
   const navigate = useNavigate();
   const disaptch = useDispatch();
@@ -29,34 +28,35 @@ function LoginPage(props) {
     disaptch(loginUser(body)).then((response) => {
       if (response.payload.loginSuccess) {
         alert("로그인에 성공하였습니다.");
-        navigate("/");
+        navigate("/land");
       } else {
-        alert("로그인중 오류가 발생했습니다.");
+        alert("아이디 혹은 비밀번호가 일치하지 않습니다.");
       }
     });
   };
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100%",
-        height: "100vh",
-      }}
-    >
-      <form
-        style={{ display: "flex", flexDirection: "column" }}
-        onSubmit={onSubmitHandler}
-      >
-        <label>Email</label>
-        <input type="email" value={Email} onChange={onEmailHandler} />
-        <label>Password</label>
-        <input type="password" value={Password} onChange={onPasswordHandler} />
+    <div>
+      <div className="header">
+        <h2>LOGIN PAGE</h2>
+      </div>
+      <div className="LoginPageDIV">
+        <form className="LoginPageFORM" onSubmit={onSubmitHandler}>
+          <label>Email</label>
+          <input type="email" value={Email} onChange={onEmailHandler} />
+          <br />
+          <label>Password</label>
+          <input
+            type="password"
+            value={Password}
+            onChange={onPasswordHandler}
+          />
 
-        <br />
-        <button type="submit">Login</button>
-      </form>
+          <br />
+          <button className="LoginButton" type="submit">
+            Login
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

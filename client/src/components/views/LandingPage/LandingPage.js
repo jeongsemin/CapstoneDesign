@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "./LandingPage.css";
 
 function LandingPage() {
   const navigate = useNavigate();
@@ -19,19 +20,57 @@ function LandingPage() {
       }
     });
   };
-  return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100%",
-        height: "100vh",
-      }}
-    >
-      <h2>시작페이지</h2>
+  const FIGMAPAGE = () => {
+    window.open("https://www.figma.com");
+  };
+  const AGGIEPAGE = () => {
+    window.open("https://aggie.io");
+  };
+  const SUMO = () => {
+    window.open("https://sumo.app/paint/?lang=en");
+  };
+  // window.location.assign이 next버튼에 할당된 함수
+  // 괄호 안에 주소를 넣어주면 됨
+  const LoadingPage = () => {
+    window.location.assign("https://c68f-115-91-214-5.jp.ngrok.io");
+  };
 
-      <button onClick={onClickHandler}>Logout</button>
+  return (
+    <div>
+      {/* //맨처음 뜨는 화면 
+      //화면 상단에 고정되며, 로그아웃 버튼은 우측 상단,글자는 좌측 상단에 고정됨 
+      //화면을 내릴 필요가 없이 한 화면에 보이기 때문에 고정시켜도 상관없음 */}
+      <div className="header">
+        <h2>CONSOMME</h2>
+        <div>
+          <button className="LogoutButton" onClick={onClickHandler}>
+            LOGOUT
+          </button>
+        </div>
+      </div>
+      <div className="LandPageDIV">
+        <label className="LandingLabel">SELECT YOUR DRAW WEBPAGE</label>
+        <hr />
+        <button
+          className="FIGMAButton"
+          onClick={FIGMAPAGE}
+          title="피그마입니다."
+        >
+          FIGMA
+        </button>
+        <br />
+        <button className="FIGMAButton" onClick={AGGIEPAGE}>
+          AGGIE
+        </button>
+        <br />
+        <button className="FIGMAButton" onClick={SUMO}>
+          SUMO
+        </button>
+        <br />
+        <button className="FIGMAButton" onClick={LoadingPage}>
+          Next
+        </button>
+      </div>
     </div>
   );
 }

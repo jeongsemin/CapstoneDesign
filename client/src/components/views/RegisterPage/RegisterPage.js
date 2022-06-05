@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { registerUser } from "../../../_actions/user_action";
 import { useNavigate } from "react-router-dom";
+import "./RegisterPage.css";
 
 function RegisterPage(props) {
   const navigate = useNavigate();
@@ -49,38 +50,49 @@ function RegisterPage(props) {
   };
 
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100%",
-        height: "100vh",
-      }}
-    >
-      <form
-        style={{ display: "flex", flexDirection: "column" }}
-        onSubmit={onSubmitHandler}
+    <div>
+      <div className="header">
+        <h2>REGISTER</h2>
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          width: "100%",
+          height: "100vh",
+        }}
       >
-        <label>Email</label>
-        <input type="email" value={Email} onChange={onEmailHandler} />
+        <form
+          style={{ display: "flex", flexDirection: "column" }}
+          onSubmit={onSubmitHandler}
+        >
+          <label>Email</label>
+          <input type="email" value={Email} onChange={onEmailHandler} />
 
-        <label>Name</label>
-        <input type="password" value={Name} onChange={onNameHandler} />
+          <label>Name</label>
+          <input type="text" value={Name} onChange={onNameHandler} />
 
-        <label>Password</label>
-        <input type="password" value={Password} onChange={onPasswordHandler} />
+          <label>Password(min.5)</label>
+          <input
+            type="password"
+            value={Password}
+            onChange={onPasswordHandler}
+          />
 
-        <label>Confirm Password</label>
-        <input
-          type="password"
-          value={ConfirmPassword}
-          onChange={onConfirmPasswordHandler}
-        />
+          <label>Confirm Password</label>
+          <input
+            type="password"
+            value={ConfirmPassword}
+            onChange={onConfirmPasswordHandler}
+          />
 
-        <br />
-        <button type="submit">Sign up</button>
-      </form>
+          <br />
+          <button type="submit" className="FIGMAButton">
+            Sign up
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
