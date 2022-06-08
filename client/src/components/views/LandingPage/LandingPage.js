@@ -49,24 +49,18 @@ function LandingPage() {
         </div>
       </div>
       <div className="LandPageDIV">
-        <label className="LandingLabel">SELECT YOUR DRAW WEBPAGE</label>
-        <hr />
-        <button
-          className="FIGMAButton"
-          onClick={FIGMAPAGE}
-          title="피그마입니다."
-        >
+        <label className="LandingLabel">FIRST : SELECT YOUR DRAW WEBPAGE</label>
+        <button className="FIGMAButton" onClick={FIGMAPAGE}>
           FIGMA
         </button>
-        <br />
         <button className="FIGMAButton" onClick={AGGIEPAGE}>
           AGGIE
         </button>
-        <br />
         <button className="FIGMAButton" onClick={SUMO}>
           SUMO
         </button>
         <br />
+        <label className="LandingLabel">Are you done? then click here!!</label>
         <button className="FIGMAButton" onClick={LoadingPage}>
           Next
         </button>
